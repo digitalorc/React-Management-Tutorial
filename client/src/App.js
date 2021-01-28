@@ -13,7 +13,7 @@ import Paper from '@material-ui/core/Paper';
 const customers = [
   {
     'id':1,
-    'image':'https://placeimg.com/64/64/any',
+    'image':'https://placeimg.com/64/64/1',
     'name': 'Michal Json',
     'birthday' : '19650515',
     'gender' : 'male',
@@ -21,7 +21,7 @@ const customers = [
   },
   {
     'id':2,
-    'image':'https://placeimg.com/64/64/any',
+    'image':'https://placeimg.com/64/64/2',
     'name': 'Brian Kuler',
     'birthday' : '1920515',
     'gender' : 'female',
@@ -29,7 +29,7 @@ const customers = [
   },
   {
     'id':3,
-    'image':'https://placeimg.com/64/64/any',
+    'image':'https://placeimg.com/64/64/3',
     'name': 'Jhon Do',
     'birthday' : '1980911',
     'gender' : 'female',
@@ -37,7 +37,7 @@ const customers = [
   },
   {
     'id':4,
-    'image':'https://placeimg.com/64/64/any',
+    'image':'https://placeimg.com/64/64/4',
     'name': 'Fradric Kudrong',
     'birthday' : '19201120',
     'gender' : 'male',
@@ -45,15 +45,15 @@ const customers = [
   },
   {
     'id':5,
-    'image':'https://placeimg.com/64/64/any',
+    'image':'https://placeimg.com/64/64/5',
     'name': 'Eddy Jonson',
     'birthday' : '1970505',
     'gender' : 'male',
     'job' : 'labor'
   },
   {
-    'id':1,
-    'image':'https://placeimg.com/64/64/any',
+    'id':6,
+    'image':'https://placeimg.com/64/64/6',
     'name': 'Yulo Yohana',
     'birthday' : '19901205',
     'gender' : 'female',
@@ -63,31 +63,35 @@ const customers = [
 
 
 const styles = theme => ({
-  root: {
-    width:'100%' ,
-    marginTop: theme.spacing.unit*3,
-    overflowX: "auto",
-    font-weight: "bold"
-  },
-  table:{
-    minWidth:1080
-
-  }
-})
+    root: {
+      width:'100%' ,
+      marginTop: theme.spacing(3),
+      overflowX: 'auto',   
+      
+    },
+    table:{
+      minWidth:1080   
+    },    
+    body:{
+      fontWeight: 'bolder',
+      fontSize:16,
+      color:'blue' 
+    }
+});
 class App extends Component {
   render() {
     const {classes} = this.props;
     return (
       <Paper className={classes.root}>
-        <Table className ={classes.table}>
+        <Table className ={classes.table} >
           <TableHead>
-            <TableRow>
-              <TableCell>Id</TableCell>
-              <TableCell>Image</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Birthday</TableCell>
-              <TableCell>Gender</TableCell>
-              <TableCell>Job</TableCell>
+            <TableRow >
+              <TableCell className={classes.body}>Id</TableCell>
+              <TableCell className={classes.body}>Image</TableCell>
+              <TableCell className={classes.body}>Name</TableCell>
+              <TableCell className={classes.body}>Birthday</TableCell>
+              <TableCell className={classes.body}>Gender</TableCell>
+              <TableCell className={classes.body}>Job</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
