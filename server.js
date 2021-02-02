@@ -36,7 +36,7 @@ connection.connect(err=>{
     app.get('/api/customers',(req,res)=>{
       console.log(`query start ....${count++} \n\n`);    
       connection.query(
-        "SELECT * FROM customer",
+        "SELECT * FROM customer WHERE isDeleted=0",
         (err,rows,fields) => {          
           if(!err)
             res.send(rows);          
@@ -71,6 +71,22 @@ app.post('/api/customers', upload.single('image'), (req, res) => {
   );
 });
 
+
+app.delete('/api/customers/:id', (req, res) => {
+  let sql = 'UPDATE CUSTOMER SET isDeleted=1 , deletedDate=NOW() WHERE id = ?';
+  let params =[req.params.id];
+
+  console.log(`query param = ${params}`);
+  connection.query(sql, params, 
+      (err, rows, fields) => {
+      if(!err) {
+        res.send(rows);
+      }
+      else {
+        console.log(err);       
+      }
+    });
+});
 
 app.listen(port, ()=> console.log(`Listening on port ${port}`));
 

@@ -84,11 +84,12 @@ class App extends Component {
                 <TableCell className={classes.body}>Birthday</TableCell>
                 <TableCell className={classes.body}>Gender</TableCell>
                 <TableCell className={classes.body}>Job</TableCell>
+                <TableCell className={classes.body}>Del</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {
-                this.state.customers? this.state.customers.map(c=> {return (<Customer key={c.id} id={c['id']} image={c['image']} name={c['name']} birthday={c['birthday']} gender={c['gender']} job={c['job']}/>);}) :
+                this.state.customers? this.state.customers.map(c=> {return (<Customer stateRefresh={this.stateRefresh} key={c.id} id={c['id']} image={c['image']} name={c['name']} birthday={c['birthday']} gender={c['gender']} job={c['job']}/>);}) :
                 <TableRow>
                   <TableCell colspan="6" align="center" >
                     <CircularProgress classname={classes.progress} variant="indeterminate" color="secondary"/>
